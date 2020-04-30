@@ -49,7 +49,7 @@ const Navbar = props => {
             <i className='fas fa-search' />&nbsp;&nbsp;
               <input
                 type="text"
-                placeholder="Tompke Copy"
+                placeholder="Tompke Tribe"
                 value={search}
                 onChange={handleChange}
                 //style=()
