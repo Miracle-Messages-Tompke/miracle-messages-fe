@@ -1,4 +1,4 @@
-import axios from "axios"
+import { axiosWithAuth } from "../utils/axiosWithAuth"
 
 export const GET_VOLUNTEERS_SUCCESS = "GET_VOLUNTEERS_SUCCESS"
 export const GET_VOLUNTEERS_EMAIL_NOT_FOUND = "GET_VOLUNTEERS_EMAIL_NOT_FOUND"
@@ -9,8 +9,8 @@ export const addEmail = email => async dispatch => {
     type: GET_VOLUNTEERS_SUCCESS
   })
 
-  axios
-    .post("https://miracle-messages-dev.herokuapp.com/forgotPassword")
+  axiosWithAuth()
+    .post("/forgotPassword")
     // Back end API goes in here
     .then(res => {
       // console.log("This is the response from AddEmail", res)

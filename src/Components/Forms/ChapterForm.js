@@ -1,5 +1,5 @@
 import React from "react"
-import axios from "axios"
+import { axiosWithAuth } from "../../utils/axiosWithAuth"
 import "./NewChapter.scss"
 
 import FormHeader from '../Header-Footer/FormHeader';
@@ -35,8 +35,8 @@ class ChapterForm extends React.Component {
     fd.append("longitude", this.state.chapter.longitude)
     fd.append("email", this.state.chapter.email)
 
-    axios
-      .post("https://miracle-messages-dev.herokuapp.com/api/chapter", fd)
+    axiosWithAuth()
+      .post("/api/chapter", fd)
       .then(response => {
         console.log(response)
       })

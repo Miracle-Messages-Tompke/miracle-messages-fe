@@ -1,4 +1,5 @@
 import axios from "axios"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const POST_NEWPASS_SUCCESS = "POST_NEWPASS_SUCCESS"
 export const POST_NEWPASS_FAIL = "POST_NEWPASS_FAIL"
@@ -8,8 +9,8 @@ export const addNewPassword = (password, action) => async dispatch => {
   dispatch({
     type: POST_NEWPASS_SUCCESS
   })
-  axios
-    .put("https://miracle-messages-dev.herokuapp.com/updatePasswordViaEmail")
+  axiosWithAuth()
+    .put("/updatePasswordViaEmail")
     // "API from volunteer form" , password
     ()
     .then(response => {

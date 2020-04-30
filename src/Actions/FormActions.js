@@ -1,4 +1,4 @@
-import axios from "axios"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 export const ADD_VOLUNTEER_START = "ADD_VOLUNTEER_START"
 export const ADD_VOLUNTEER_SUCCESS = "ADD_VOLUNTEER_SUCCESS"
 export const ADD_VOLUNTEER_FAIL = "ADD_VOLUNTEER_FAIL"
@@ -10,10 +10,10 @@ export const addVolunteers = volunteer => async dispatch => {
 
   console.log(volunteer.newVolunteer)
 
-  axios
+  axiosWithAuth()
 
     .post(
-      "https://miracle-messages-dev.herokuapp.com/api/volunteer/register",
+      "/api/volunteer/register",
       volunteer.newVolunteer
     )
     .then(res => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import SearchBarCard from "./SearchBarCard.js";
 import SideBar from "./Sidebar.js";
 import "./SearchBar.scss";
@@ -20,8 +20,8 @@ const SearchBar = props => {
   ])
 
   useEffect(() => {
-    axios
-      .get("https://miracle-messages-dev.herokuapp.com/api/chapter", chapters)
+    axiosWithAuth()
+      .get("/api/chapter", chapters)
       .then(res => {
         // console.log("response from SearchBar axios call", res)
         setChapters(res.data)
