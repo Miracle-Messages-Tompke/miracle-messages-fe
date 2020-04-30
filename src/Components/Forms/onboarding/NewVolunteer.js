@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { axiosWithAuth } from '../../../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
 import { makeStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -243,8 +243,8 @@ const NewVolunteer = () => {
     state: "state",
     country: "country",
     email: "testTestTest@email.com"}
-    axios
-      .post("https://miracle-messages-dev.herokuapp.com/api/volunteer", volunteer)
+    axiosWithAuth()
+      .post("/api/volunteer", volunteer)
       .then(res => {
         console.log(res)
         handleNext();

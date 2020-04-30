@@ -8,6 +8,7 @@ import { updateChapters } from "../../Actions/SearchBarAction";
 // search bar component
 // import SearchBar from "../MapComponents/SearchBar.js";
 import axios from "axios";
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 const Navbar = props => {
   const [search, updateSearch] = useState("");
@@ -16,8 +17,8 @@ const Navbar = props => {
 
   
     useEffect(() => {
-      axios
-        .get("https://miracle-messages-dev.herokuapp.com/api/chapter", chapters)
+      axiosWithAuth()
+        .get("/api/chapter", chapters)
         .then(res => {
           updateChapters(res.data);
         })

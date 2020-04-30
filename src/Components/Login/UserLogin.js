@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import "./UserLogin.js";
 import logo from "../../Assets/Imgs/MM_Logo.png";
 import "../Forms/VolunteerForm.scss";
@@ -33,8 +33,8 @@ class LoginPage extends Component {
 
     //return this.setState({ error: "" })
 
-    axios
-      .post("https://miracle-messages-dev.herokuapp.com/api/volunteer/login", this.state)
+    axiosWithAuth()
+      .post("/api/volunteer/login", this.state)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);

@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const GET_CHAPTERS_FETCHING = "GET_CHAPTERS_FETCHING";
 export const GET_CHAPTERS_SUCCESS = "GET_CHAPTERS_SUCCESS";
@@ -10,10 +10,10 @@ export const getChapter = chapters => async dispatch => {
     type: GET_CHAPTERS_FETCHING
   })
 
-  axios
+  axiosWithAuth()
   //TODO why is this here?
     //.get("localhost:5000/api/chapter", chapters)
-    .get('https://miracle-messages-dev.herokuapp.com', chapters)
+    .get('/', chapters)
     .then(res => {
       // console.log(res)
       dispatch({
