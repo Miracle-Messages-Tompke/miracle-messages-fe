@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     if(process.env.NODE_ENV === 'development') {
         baseUrl = `http://localhost:5000/`;
     }  else {
-        baseUrl = `https://miracle-messages-dev.herokuapp.com/`;
+        baseUrl = `https://miracle-messages-tompke.herokuapp.com/`;
     }
 
     return axios.create({
